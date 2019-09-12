@@ -10,5 +10,6 @@ defmodule CaptureWeb.Router do
     # resources "/responses", ResponseController, only: [:create, :show]
     get "/responses", ResponseController, :index
     get "/responses/:id", ResponseController, :show
+    get "/surveys/:survey_id", SurveyController, :show
   end
 end

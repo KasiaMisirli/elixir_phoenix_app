@@ -68,4 +68,13 @@ defmodule Capture.Surveys do
     )
     |> Repo.one()
   end
+
+  def find_response_by_id(id) do
+    Repo.get(Response, id)
+  end
+
+  # ^id will know that you want the survey id and not the table id
+  def find_responses_by_survey_id(id) do
+    Response |> Ecto.Query.where(survey_id: ^id) |> Capture.Repo.all()
+  end
 end

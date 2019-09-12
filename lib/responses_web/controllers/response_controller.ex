@@ -27,16 +27,13 @@ defmodule CaptureWeb.ResponseController do
   end
 
   def index(conn, _params) do
-    responses = Capture.Repo.all(Response)
-
-    IO.inspect(responses)
-
+    responses = Repo.all(Response)
     render(conn, "index.json", responses: responses)
   end
 
-  # def show(conn, _params) do
-  #   render(conn, "show.json")
-  # end
+  def show(conn, %{"id" => id}) do
+    render(conn, "show.json", response: Surveys.find_response_by_id(id))
+  end
 end
 
 # demographic_query = fn (demographic) -> (
