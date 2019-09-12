@@ -30,7 +30,7 @@ defmodule CaptureWeb do
   def view do
     quote do
       use Phoenix.View,
-        root: "lib/capture_web/templates",
+        root: "lib/responses_web/templates",
         namespace: CaptureWeb
 
       # Import convenience functions from controllers

@@ -13,11 +13,11 @@ defmodule Capture.Surveys do
     |> case do
       nil ->
         create_response(params)
+
       response ->
         update_response(response, params)
-      end
     end
-
+  end
 
   @doc """
   Creates a response.
@@ -56,16 +56,16 @@ defmodule Capture.Surveys do
   end
 
   def find_response(%{
-    "survey_id" => survey_id,
-    "question_id" => question_id,
-    "user_id" => user_id
-  }) do
+        "survey_id" => survey_id,
+        "question_id" => question_id,
+        "user_id" => user_id
+      }) do
     Response
     |> where(
       survey_id: ^survey_id,
       question_id: ^question_id,
       user_id: ^user_id
     )
-    |> Repo.one
+    |> Repo.one()
   end
 end

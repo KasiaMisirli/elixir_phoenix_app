@@ -7,7 +7,8 @@ defmodule CaptureWeb.Router do
 
   scope "/api", CaptureWeb do
     pipe_through :api
-    resources "/responses", ResponseController, only: [:create, :show]
-
+    # resources "/responses", ResponseController, only: [:create, :show]
+    get "/responses", ResponseController, :index
+    get "/responses/:id", ResponseController, :show
   end
 end

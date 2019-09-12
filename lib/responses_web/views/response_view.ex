@@ -7,10 +7,17 @@ defmodule CaptureWeb.ResponseView do
   end
 
   def render("response.json", %{response: response}) do
-    %{id: response.id,
+    %{
+      id: response.id,
       survey_id: response.survey_id,
       question_id: response.question_id,
       user_id: response.user_id,
-      value: response.value}
+      value: response.value
+    }
+  end
+
+  # the render function that was called in the controller is defined here.
+  def render("index.json", %{responses: responses}) do
+    render_many(responses, CaptureWeb.ResponseView, "response.json")
   end
 end
