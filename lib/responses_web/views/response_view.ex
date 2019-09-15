@@ -20,4 +20,26 @@ defmodule CaptureWeb.ResponseView do
   def render("index.json", %{responses: responses}) do
     render_many(responses, CaptureWeb.ResponseView, "response.json")
   end
+
+  def response_map do
+    %{
+      ones: 10,
+      twos: 26,
+      threes: 34,
+      fours: 45,
+      fives: 51
+    }
+  end
+
+  def render("result.json", %{responses: responses}) do
+    # Survey.count_total(responses)
+    render(responses)
+    # %{
+    #   ones: 10,
+    #   twos: 26,
+    #   threes: 34,
+    #   fours: 45,
+    #   fives: 51
+    # }
+  end
 end

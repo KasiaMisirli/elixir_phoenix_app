@@ -5,7 +5,7 @@ defmodule Capture.SurveysTest do
   alias Capture.Surveys.Response
 
   describe "responses, with no existing response" do
-    @valid_attrs %{"question_id" => 42, "survey_id" => 42, "user_id" => 42,"value" => 42}
+    @valid_attrs %{"question_id" => 42, "survey_id" => 42, "user_id" => 42, "value" => 42}
 
     test "handle_response/1 creates a new response" do
       assert {:ok, %Response{} = response} = Surveys.handle_response(@valid_attrs)
@@ -17,10 +17,10 @@ defmodule Capture.SurveysTest do
   end
 
   describe "responses, with an existing response" do
-    @valid_attrs %{"question_id" => 42, "survey_id" => 42, "user_id" => 42,"value" => 42}
+    @valid_attrs %{"question_id" => 42, "survey_id" => 42, "user_id" => 42, "value" => 42}
 
     setup do
-      response = %Response{} |> Response.changeset(@valid_attrs) |> Repo.insert!
+      response = %Response{} |> Response.changeset(@valid_attrs) |> Repo.insert!()
       {:ok, response: response}
     end
 

@@ -11,5 +11,6 @@ defmodule CaptureWeb.Router do
     get "/responses", ResponseController, :index
     get "/responses/:id", ResponseController, :show
     get "/surveys/:survey_id", SurveyController, :show
+    get "/surveys/:survey_id/result", SurveyController, :result
   end
 end

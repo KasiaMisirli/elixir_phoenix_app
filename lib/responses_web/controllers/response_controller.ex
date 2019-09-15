@@ -27,18 +27,10 @@ defmodule CaptureWeb.ResponseController do
   end
 
   def index(conn, _params) do
-    responses = Repo.all(Response)
-    render(conn, "index.json", responses: responses)
+    render(conn, "index.json", responses: Repo.all(Response))
   end
 
   def show(conn, %{"id" => id}) do
     render(conn, "show.json", response: Surveys.find_response_by_id(id))
   end
 end
-
-# demographic_query = fn (demographic) -> (
-#   Capture.Surveys.Response
-#   |> Capture.Surveys.filter_responses_query(%{"survey_id" => 1})
-#   |> Ecto.Query.join(:inner, [response], demographic in assoc(response, :demographics)) 
-#   |> Ecto.Query.where([_r, demographic], demographic.value == ^demographic)
-# )
